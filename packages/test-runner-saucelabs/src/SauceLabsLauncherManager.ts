@@ -45,7 +45,7 @@ export class SauceLabsLauncherManager {
     this.launchers.delete(launcher);
 
     if (this.launchers.size === 0) {
-      this.closeConnection();
+      return this.closeConnection();
     }
   }
 
@@ -60,10 +60,12 @@ export class SauceLabsLauncherManager {
       await this.connectionPromise;
     }
 
-    if (this.connection != null) {
-      this.connection.close();
-    }
+    const connection = this.connection;
     this.connection = undefined;
     this.connectionPromise = undefined;
+
+    if (connection != null) {
+      await connection.close();
+    }
   };
 }

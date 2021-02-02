@@ -25,7 +25,7 @@ const sauceLabsLauncher = createSauceLabsLauncher(
 );
 
 describe('test-runner-saucelabs', function () {
-  this.timeout(200000);
+  this.timeout(400000);
 
   function createConfig() {
     return {
@@ -52,12 +52,17 @@ describe('test-runner-saucelabs', function () {
     };
   }
 
-  runIntegrationTests(createConfig, {
-    basic: true,
-    focus: false,
-    groups: false,
-    parallel: false,
-    testFailure: false,
-    locationChanged: false,
-  });
+  runIntegrationTests(
+    createConfig,
+    {
+      basic: true,
+      many: true,
+      focus: false,
+      groups: false,
+      parallel: false,
+      testFailure: false,
+      locationChanged: false,
+    },
+    { delayBetweenTests: 2000 },
+  );
 });
