@@ -47,7 +47,7 @@
   "dependencies": {
     "@web/test-runner-chrome": "^0.9.1",
     "@web/test-runner-core": "^0.10.5",
-    "puppeteer": "^5.5.0"
+    "puppeteer": "^7.0.1"
   },
   "devDependencies": {
     "@web/test-runner-mocha": "^0.7.0"
